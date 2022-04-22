@@ -14,7 +14,7 @@ function List () {
   const getListData = () => {
     fetch('/api/getList')
     .then(res => res.json())
-    .then(list => setList({ list }))
+    .then(list => setList( list ))
   }
 
   return (
