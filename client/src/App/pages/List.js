@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const List = () => {
+function List () {
   // Initialize the state
-  const [list, getList] = useState([]);
+  const [list, setList] = useState([]);
 
-  useEffect(() => {
+  // Fetch the list on first mount
+  useEffect(() =>{
     getListData();
-  }, []);
+  }, [])
 
   // Retrieves the list of items from the Express app
   const getListData = () => {
     fetch('/api/getList')
     .then(res => res.json())
-    .then(list => { list })
-    getList(res.data);
+    .then(list => setList({ list }))
   }
 
   return (
